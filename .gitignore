@@ -1,0 +1,12 @@
+node_modules/
+
+# Real secrets — never commit. Only .env.example belongs in git.
+.env
+.env.local
+.env*.local
+
+# Vercel link/state
+.vercel/
+
+# macOS
+.DS_Store
