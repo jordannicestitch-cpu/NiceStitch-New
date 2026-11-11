@@ -124,10 +124,13 @@ Built and maintained by PRSMTECH.
 
 <div align="center">
 
-[![Back to top](https://img.shields.io/badge/Back_to_top-0F7BA3?style=for-the-badge)](#-nice-stitch)
+[![Back to top](https://img.shields.io/badge/↑_Back_to-Top-0F7BA3?style=for-the-badge)](#-nice-stitch)
+[![Live site](https://img.shields.io/badge/Live-nicestitchla.com-79CCE4?style=for-the-badge&logoColor=white)](https://www.nicestitchla.com)
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0F7BA3&height=100&section=footer" alt="footer" />
+<br />
 
-Last Updated: 2026-11-10
+**Last Updated**: November 2026 | **Status**: ✅ Rebuilt on Next.js · production cutover pending
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0F7BA3&height=80&section=footer" width="100%" alt="footer" />
 
 </div>
