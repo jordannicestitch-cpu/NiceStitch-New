@@ -1,0 +1,25 @@
+/* Strips the browser's button chrome from the <button> wrapped around each
+   card photo, so the card looks exactly as globals.css (.work-card) draws it. */
+.trigger {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: inherit;
+}
+
+/* Drawn inside the photo: .work-card clips anything outside it. */
+.trigger:focus-visible {
+  outline: 3px solid var(--color-brand-deep);
+  outline-offset: -3px;
+}
+
+/* The lightbox takes focus as a whole while open; it is not a control. */
+.lightbox:focus {
+  outline: none;
+}

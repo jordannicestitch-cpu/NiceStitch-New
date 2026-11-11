@@ -1,12 +1,48 @@
-node_modules/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Real secrets — never commit. Only .env.example belongs in git.
-.env
-.env.local
-.env*.local
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Vercel link/state
-.vercel/
+# testing
+/coverage
 
-# macOS
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files — real values never go in git; only the template does
+.env*
+!.env.example
+
+# keys and credentials
+*.key
+credentials.json
+service-account.json
+*_token.json
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
