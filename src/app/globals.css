@@ -723,3 +723,64 @@ ul { padding-left: 1.25em; }
   font-size: .82rem;
   color: #888;
 }
+
+/* ---------- Order & Pay ---------- */
+.order-addons {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem 1.25rem;
+  margin: 0;
+}
+.order-addons legend {
+  font-weight: 700;
+  font-size: .88rem;
+  padding: 0 .4rem;
+}
+.order-addon {
+  display: flex;
+  gap: .7rem;
+  align-items: flex-start;
+  padding: .6rem 0;
+  cursor: pointer;
+}
+.order-addon input { width: auto; margin-top: .25rem; flex-shrink: 0; }
+.order-addon__blurb {
+  display: block;
+  font-size: .85rem;
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.order-total {
+  background: var(--color-accent-soft);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+}
+.order-total__lines { list-style: none; margin: 0; padding: 0; }
+.order-total__lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .3rem 0;
+  font-size: .92rem;
+}
+.order-total__sum {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: .6rem 0 0;
+  padding-top: .6rem;
+  border-top: 1.5px solid rgba(13, 13, 13, .12);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+.order-total__invalid { margin: 0; color: var(--color-muted); font-size: .92rem; }
+
+.order-next {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin-top: 2rem;
+}
+.order-next h2 { font-size: 1.15rem; }

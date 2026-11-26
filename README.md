@@ -110,6 +110,46 @@ vercel --prod     # production
 
 Check the deployed page itself after a deploy, not only the command output.
 
+## Online payments (Stripe)
+
+`/order` sells the **fixed-price** work from the price sheet and takes card
+payment through Stripe Checkout. Embroidery, UV DTF, online-store builds and
+print-on-demand stay quote-only — their prices depend on stitch count, artwork
+or a range, so they can't be self-served.
+
+**Prices live in `src/lib/catalog.ts` and nowhere else.** The browser submits
+only a selection (product, quantity, option, add-ons); `/api/checkout`
+recomputes every amount server-side, so a tampered request can't change what
+Stripe charges. `src/lib/catalog.test.ts` covers the tier boundaries, the
+screen-print minimum, the $10 transfer minimum and the tampering cases.
+
+Flow: `/order` → `POST /api/checkout` → Stripe Checkout (hosted) →
+`/order/success` (verifies the session with Stripe before confirming) and
+`POST /api/stripe/webhook` (signature-verified; emails the shop on payment).
+
+Setup:
+1. Stripe → Developers → API keys → copy the secret key into `STRIPE_SECRET_KEY`.
+2. Stripe → Developers → Webhooks → add endpoint
+   `https://www.nicestitchla.com/api/stripe/webhook`, subscribe it to
+   `checkout.session.completed`, copy the signing secret into
+   `STRIPE_WEBHOOK_SECRET`.
+3. Redeploy. Test with a `sk_test_` key first — the order page shows a
+   "Test mode" banner whenever the key isn't live.
+
+### Known gaps in the payment flow
+
+- **Screen-print minimum is a guess.** The price sheet says "minimums apply"
+  without a number; `SCREEN_PRINT_MIN_QTY` in `catalog.ts` is set to 24.
+  Confirm and change that one constant.
+- **No artwork upload at checkout.** Stripe Checkout can't take files, so the
+  success page and the shop's notification email both say to collect artwork
+  separately.
+- **No sales tax.** Stripe Tax is not enabled. California generally taxes
+  tangible goods; check with an accountant before going live.
+- **No shipping.** Orders assume pickup — no address is collected and no
+  shipping is charged.
+- **No terms or refund policy page.** Worth adding before taking real money.
+
 ## Still outstanding
 
 - **Resend domain verification.** The sender is Resend's sandbox address, which lands in spam and only delivers to the Resend account's own inbox. Verify `nicestitchla.com` in Resend and set `FROM_EMAIL` to an address on it.
