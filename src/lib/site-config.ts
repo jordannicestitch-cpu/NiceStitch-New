@@ -31,7 +31,12 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/order", label: "Order & Pay" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+/**
+ * Shown in the nav only when Stripe is configured — advertising "Order & Pay"
+ * while payments are switched off would walk customers into a dead end.
+ */
+export const orderLink = { href: "/order", label: "Order & Pay" } as const;

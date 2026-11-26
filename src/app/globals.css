@@ -784,3 +784,53 @@ ul { padding-left: 1.25em; }
   margin-top: 2rem;
 }
 .order-next h2 { font-size: 1.15rem; }
+
+/* ---------- Policy pages ---------- */
+.legal-section { padding: 4rem 0 6rem; }
+.legal-section h1 { font-size: clamp(2rem, 4vw, 2.6rem); }
+.legal-section h2 {
+  font-size: 1.15rem;
+  margin-top: 2.25rem;
+}
+.legal-section p,
+.legal-section li { max-width: 68ch; }
+.legal-section ul { margin-bottom: 1rem; }
+.legal-section li { margin-bottom: .45rem; }
+.legal-updated {
+  color: var(--color-muted);
+  font-size: .88rem;
+  margin-top: -.5rem;
+}
+.legal-callout {
+  background: var(--color-accent-soft);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+.legal-callout p { margin: 0; }
+
+.site-footer__legal {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.site-footer__legal a { font-size: .82rem; color: #cfe3ec; }
+
+@media (min-width: 600px) {
+  .site-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .site-footer__bottom p { margin: 0; }
+}
+
+/* ---------- About ---------- */
+.about-lede {
+  font-size: 1.15rem;
+  color: var(--color-muted);
+  max-width: 60ch;
+}
+.about-section__body h2 { margin-top: 2.25rem; }
+.about-section__body p { max-width: 68ch; }

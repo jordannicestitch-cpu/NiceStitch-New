@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
+import { stripeConfigured } from "@/lib/stripe";
 import { SiteFooter } from "./_components/SiteFooter";
 import { SiteHeader } from "./_components/SiteHeader";
 import { UtilityBar } from "./_components/UtilityBar";
@@ -29,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <UtilityBar />
-        <SiteHeader />
+        <SiteHeader showOrderLink={stripeConfigured()} />
         <main id="MainContent">{children}</main>
         <SiteFooter />
       </body>

@@ -77,6 +77,11 @@ export function SiteFooter() {
         <p>
           &copy; <CopyrightYear /> {name}. All rights reserved.
         </p>
+        <nav className="site-footer__legal" aria-label="Policies">
+          <Link href="/terms">Terms</Link>
+          <Link href="/refunds">Refunds</Link>
+          <Link href="/privacy">Privacy</Link>
+        </nav>
       </div>
     </footer>
   );

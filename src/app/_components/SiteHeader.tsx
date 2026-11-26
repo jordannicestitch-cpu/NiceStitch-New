@@ -3,10 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks, siteConfig } from "@/lib/site-config";
+import { navLinks, orderLink, siteConfig } from "@/lib/site-config";
 
-export function SiteHeader() {
+export function SiteHeader({ showOrderLink = false }: { showOrderLink?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
+  const links = showOrderLink ? [...navLinks, orderLink] : navLinks;
   const close = () => setIsOpen(false);
 
   return (
@@ -23,7 +24,7 @@ export function SiteHeader() {
           />
         </Link>
         <nav className="site-header__nav" aria-label="Primary">
-          {navLinks.map((link) => (
+          {links.map((link) => (
             <Link key={link.href} href={link.href}>
               {link.label}
             </Link>
@@ -51,7 +52,7 @@ export function SiteHeader() {
         aria-label="Mobile"
         hidden={!isOpen}
       >
-        {navLinks.map((link) => (
+        {links.map((link) => (
           <Link key={link.href} href={link.href} onClick={close}>
             {link.label}
           </Link>
